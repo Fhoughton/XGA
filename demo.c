@@ -1,0 +1,5 @@
+#include "xga.h"
+
+int main() {
+	return 0;
+}
