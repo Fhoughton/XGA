@@ -1,2 +1,8 @@
 # Build files
 *.exe
+*.o
+build
+
+# Development depencies
+dev
+Makefile
