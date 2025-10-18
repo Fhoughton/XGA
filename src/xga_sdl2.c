@@ -52,6 +52,22 @@ void XGA_drawScreen() {
 	}
 
 	SDL_RenderPresent(renderer);
+}
 
-	SDL_Event e; bool quit = false; while( quit == false ){ while( SDL_PollEvent( &e ) ){ if( e.type == SDL_QUIT ) quit = true; } }
+void XGA_update() {
+	SDL_Event e;
+
+	while( SDL_PollEvent( &e ) != 0 )
+	{
+		//User requests quit
+		if( e.type == SDL_QUIT )
+		{
+			XGA_exit();
+		}
+	}
+}
+
+void XGA_wait(float seconds) {
+	float ms = seconds * 1000;
+	SDL_Delay((int)ms);
 }

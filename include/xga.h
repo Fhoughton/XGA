@@ -43,7 +43,9 @@ PER-PLATFORM FORWARD DEFINITIONS
 */
 /* Internals */
 void XGA_init(); // Platform-specific, can be empty
-void XGA_exit();
+void XGA_exit(); // Cleanup code
+void XGA_wait(float seconds); // Seconds to wait for, supports floats
+void XGA_update(); // Platform-specific updates like input handling, sound updates etc.
 
 /* Input */
 int XGA_isAPressed();
