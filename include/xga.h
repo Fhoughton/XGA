@@ -61,4 +61,17 @@ void XGA_drawSurface(XGA_surface* surface, XGA_color* mask) {
 PER-PLATFORM FORWARD DEFINITIONS
 ----------------------------------------------------------------------------------
 */
+/* Input */
 int XGA_isAPressed();
+int XGA_isBPressed();
+int XGA_isLeftPressed();
+int XGA_isRightPressed();
+int XGA_isUpPressed();
+int XGA_isDownPressed();
+int XGA_isStartPressed();
+int XGA_isSelectPressed();
+
+/* Rendering */
+void XGA_drawScreen();
+
+/* Audio */
