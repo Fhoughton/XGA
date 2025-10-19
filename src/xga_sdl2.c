@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+#define SDL_SCALE 10
+
 //The window we'll be rendering to
 SDL_Window* window = NULL;
 SDL_Renderer *renderer = NULL;
@@ -20,7 +22,8 @@ void XGA_platform_init() {
 	{
 		//Create window
 		SDL_Init(SDL_INIT_VIDEO);
-		SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, 0, &window, &renderer);
+		SDL_CreateWindowAndRenderer(SCREEN_WIDTH * SDL_SCALE, SCREEN_HEIGHT * SDL_SCALE, 0, &window, &renderer);
+		SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 		if( window == NULL )
 		{
 			printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
