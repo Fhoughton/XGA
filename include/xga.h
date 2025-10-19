@@ -26,15 +26,21 @@ typedef struct XGA_color {
 	uint8_t b;
 } XGA_color;
 
-typedef XGA_color XGA_surface[SCREEN_WIDTH][SCREEN_HEIGHT];
+typedef struct XGA_sprite
+{
+	XGA_color **data; // Dynamically allocate 2D array
+	int width;
+	int height;
+} XGA_sprite;
 
 /* Globals */
-extern XGA_surface XGA_screen;
+extern XGA_sprite XGA_screen;
 
 /* Functions */
+void XGA_init();
 void XGA_drawPixel(int x, int y, XGA_color color);
 int XGA_colorEqual(XGA_color a, XGA_color b);
-void XGA_drawSurface(XGA_surface* surface, XGA_color* mask);
+void XGA_drawSprite(XGA_sprite* surface, XGA_color* mask);
 
 /*
 ----------------------------------------------------------------------------------
@@ -42,7 +48,7 @@ PER-PLATFORM FORWARD DEFINITIONS
 ----------------------------------------------------------------------------------
 */
 /* Internals */
-void XGA_init(); // Platform-specific, can be empty
+void XGA_platform_init(); // Platform-specific, can be empty
 void XGA_exit(); // Cleanup code
 void XGA_wait(float seconds); // Seconds to wait for, supports floats
 void XGA_update(); // Platform-specific updates like input handling, sound updates etc.

@@ -8,7 +8,7 @@
 SDL_Window* window = NULL;
 SDL_Renderer *renderer = NULL;
 
-void XGA_init() {
+void XGA_platform_init() {
 	int success = 0;
 	//Initialize SDL
 	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
@@ -45,7 +45,7 @@ void XGA_drawScreen() {
 
 	for (x = 0; x < SCREEN_WIDTH; x++) {
 		for (y = 0; y < SCREEN_HEIGHT; y++) {
-			XGA_color pixelColor = XGA_screen[x][y];
+			XGA_color pixelColor = XGA_screen.data[x][y];
 			SDL_SetRenderDrawColor(renderer, pixelColor.r, pixelColor.g, pixelColor.b, 255);
 			SDL_RenderDrawPoint(renderer, x, y);
 		}
