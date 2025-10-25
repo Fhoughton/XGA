@@ -23,6 +23,7 @@ int main() {
 		for (i = 0; i < SCREEN_WIDTH; i++) {
 			XGA_drawPixel(i, i, line_color); 
 		}
+		XGA_drawLine(10,0, 20, 60, GREEN);
 		XGA_drawScreen();
 		XGA_wait(1/60);
 	}
