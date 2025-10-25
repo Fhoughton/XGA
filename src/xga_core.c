@@ -95,6 +95,31 @@ void XGA_drawLine(int x1, int y1, int x2, int y2, XGA_color color) {
 	}
 }
 
+void XGA_drawRect(int x1, int y1, int width, int height, XGA_color color) {
+	for (int x = x1; x < x1+width; x++) {
+		for (int y = y1; y < y1+height; y++) {
+			XGA_drawPixel(x, y, color);
+		}
+	}
+}
+
+void XGA_drawRectLines(int x1, int y1, int width, int height, XGA_color color) {
+	int x2 = x1 + width - 1;
+    int y2 = y1 + height - 1;
+
+	// Horizontal lines
+	for (int i = x1; i <= x2; i++) {
+		XGA_drawPixel(i, y1, color); // Top line
+		XGA_drawPixel(i, y2, color); // Bottom line
+	}
+	
+	// Vertical lines
+	for (int j = y1; j <= y2; j++) {
+		XGA_drawPixel(x1, j, color);   // left edge
+        XGA_drawPixel(x2, j, color);  // right edge
+    }
+}
+
 int XGA_colorEqual(XGA_color a, XGA_color b) {
 	return (a.r == b.r) && (a.g == b.g) && (a.b == b.b);
 }

@@ -24,6 +24,9 @@ int main() {
 			XGA_drawPixel(i, i, line_color); 
 		}
 		XGA_drawLine(10,0, 20, 60, GREEN);
+		XGA_drawRect(41, 41, 5, 5, BLUE);
+		XGA_drawRect(40, 40, 4, 4, GREEN);
+		XGA_drawRectLines(40, 40, 5, 5, RED);
 		XGA_drawScreen();
 		XGA_wait(1/60);
 	}
