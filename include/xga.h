@@ -38,6 +38,7 @@ extern XGA_sprite XGA_screen;
 
 /* Functions */
 void XGA_init();
+void XGA_clearScreen(XGA_color color);
 void XGA_drawPixel(int x, int y, XGA_color color);
 void XGA_drawLine(int x1, int y1, int x2, int y2, XGA_color color);
 void XGA_drawRect(int x1, int y1, int width, int height, XGA_color color);

@@ -10,3 +10,5 @@
 - Console UI (cross-platform so not curses unless can find windows compatability layer)
 - Xbox 360
 - Wii (test via dolphin)
+- Emacs window
+- Web

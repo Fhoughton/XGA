@@ -117,3 +117,19 @@ int XGA_isAPressed() {
 int XGA_isBPressed() {
 	return XGA_key_B;
 }
+
+int XGA_isUpPressed() {
+	return XGA_key_UP;
+}
+
+int XGA_isDownPressed() {
+	return XGA_key_DOWN;
+}
+
+int XGA_isLeftPressed() {
+	return XGA_key_LEFT;
+}
+
+int XGA_isRightPressed() {
+	return XGA_key_RIGHT;
+}

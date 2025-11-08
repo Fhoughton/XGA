@@ -17,6 +17,14 @@ void XGA_init() {
 	XGA_platform_init();
 }
 
+void XGA_clearScreen(XGA_color color) {
+	for (int x = 0; x < SCREEN_WIDTH; x++) {
+		for (int y = 0; y < SCREEN_WIDTH; y++) {
+				XGA_screen.data[x][y] = color;
+		}
+	}
+}
+
 void XGA_drawPixel(int x, int y, XGA_color color) {
 	XGA_screen.data[x][y] = color;
 }
