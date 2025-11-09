@@ -2,6 +2,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+#include "plumber.h"
+
 /* Global definitions */
 const XGA_color RED = {255, 0, 0};
 const XGA_color GREEN = {0, 255, 0};
@@ -88,6 +90,8 @@ int main() {
 		XGA_drawLine(10,0, 20, 60, GREEN);
 		drawPlayer(player);
 		XGA_drawRectLines(40, 40, 5, 5, RED);
+		XGA_drawSprite(&plumber, GREEN);
+		
 		XGA_drawScreen();
 		XGA_wait(1/60);
 	}
