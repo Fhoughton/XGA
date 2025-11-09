@@ -132,13 +132,11 @@ int XGA_colorEqual(XGA_color a, XGA_color b) {
 	return (a.r == b.r) && (a.g == b.g) && (a.b == b.b);
 }
 
-void XGA_drawSprite(XGA_sprite* sprite, XGA_color mask) {
-	int x, y;
-	
-	for (x = 0; x < sprite->width; x++) {
-		for (y = 0; y < sprite->height; y++) {
-			if (XGA_colorEqual(sprite->data[x][y], mask) == 0) {
-				XGA_drawPixel(x,y,sprite->data[x][y]);
+void XGA_drawSprite(XGA_sprite* sprite, int x, int y, XGA_color mask) {
+	for (int i = 0; i < sprite->width; i++) {
+		for (int j = 0; j < sprite->height; j++) {
+			if (XGA_colorEqual(sprite->data[i][j], mask) == 0) {
+				XGA_drawPixel(x+i,y+j,sprite->data[i][j]);
 			}
 		}
 	}

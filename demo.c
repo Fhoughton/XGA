@@ -41,12 +41,12 @@ void handlePlayerInput(Player* p) {
 	if ((p->x) < 0.0f) {
 		(p->x) = 0.0f;
 	}
-	if ((p->x) > SCREEN_WIDTH-6) {
-		(p->x) = SCREEN_WIDTH-6;
+	if ((p->x) > SCREEN_WIDTH-PLUMBER_WIDTH) {
+		(p->x) = SCREEN_WIDTH-PLUMBER_WIDTH;
 	}
 	
-	if ((p->y) > SCREEN_HEIGHT-6) {
-		(p->y) = SCREEN_HEIGHT-6;
+	if ((p->y) > SCREEN_HEIGHT-PLUMBER_HEIGHT) {
+		(p->y) = SCREEN_HEIGHT-PLUMBER_HEIGHT;
 	}
 	if ((p->y) < 0) {
 		(p->y) = 0.0f;
@@ -54,8 +54,10 @@ void handlePlayerInput(Player* p) {
 }
 
 void drawPlayer(Player* p) {
-	XGA_drawRect((int)((p->x)+1), (int)((p->y)+1), 5, 5, BLUE);
-	XGA_drawRect((int)p->x, (int)p->y, 4, 4, GREEN);
+	//XGA_drawRect((int)((p->x)+1), (int)((p->y)+1), 5, 5, BLUE);
+	//XGA_drawRect((int)p->x, (int)p->y, 4, 4, GREEN);
+	
+	XGA_drawSprite(&plumber, (int)p->x, (int)p->y, GREEN);
 }
 
 Player* player;
@@ -90,7 +92,6 @@ int main() {
 		XGA_drawLine(10,0, 20, 60, GREEN);
 		drawPlayer(player);
 		XGA_drawRectLines(40, 40, 5, 5, RED);
-		XGA_drawSprite(&plumber, GREEN);
 		
 		XGA_drawScreen();
 		XGA_wait(1/60);
